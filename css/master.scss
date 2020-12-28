@@ -1,0 +1,57 @@
+@import "./helper/variables";
+
+html, body{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  background-color: white-smoke;
+}
+
+body{
+  display: grid;
+  grid-template-rows: 50px auto 50px
+}
+
+header{
+  position: fixed;
+  width: 100%;
+  background-color: #837465;
+  color: white;
+  height: $header-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main{
+  margin-top: $header-height;
+
+    div.html-elements{
+        width: 100%;
+
+      select{
+        margin: 1rem 0;
+      }
+    }
+}
+
+
+// X-Small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {}
