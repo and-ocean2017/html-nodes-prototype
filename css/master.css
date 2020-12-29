@@ -3,35 +3,75 @@ html, body {
   width: 100%;
   margin: 0;
   padding: 0;
-  font-weight: 400;
   background-color: white-smoke;
 }
 
 body {
   display: grid;
-  grid-template-rows: 50px auto 50px;
+  grid-template-rows: 60px auto;
 }
 
 header {
-  position: fixed;
-  width: 100%;
   background-color: #837465;
   color: white;
-  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
 }
 
 main {
-  margin-top: 50px;
+  overflow-y: auto;
 }
 main div.html-elements {
   width: 100%;
 }
 main div.html-elements select {
   margin: 1rem 0;
+}
+main div.props-elements {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+}
+main div.props-elements section:nth-child(even) {
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  main {
+    display: grid;
+    grid-template-rows: 100px auto;
+  }
+
+  div.props-elements {
+    flex-direction: row !important;
+    overflow-y: auto !important;
+    padding-right: 0 !important;
+    padding-top: 1rem !important;
+    padding-bottom: 0.25rem !important;
+  }
+  div.props-elements section {
+    flex: 50%;
+    height: 100%;
+    overflow-y: auto !important;
+  }
+  div.props-elements section > div:first-child {
+    text-align: center;
+    margin: 1rem 0;
+  }
+  div.props-elements section:first-child > div:last-child {
+    width: 70%;
+    margin: 0 auto;
+  }
+  div.props-elements section:nth-child(even) {
+    margin-top: 0 !important;
+    margin-left: 1rem;
+  }
+}
+@media (min-width: 992px) {
+  section:first-child > div:last-child {
+    width: 50% !important;
+  }
 }
 
 /*# sourceMappingURL=master.css.map */
