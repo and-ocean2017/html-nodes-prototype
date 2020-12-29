@@ -51,19 +51,43 @@ function createListElement(text) {
   return list;
 }
 
-function addPropertiesElements() {}
+function createPropertiesElement(text) {
+  const parent = document.createElement('div');
+  const child = document.createElement('span');
+  const textNode = document.createTextNode(text);
 
-function addElementsClickListeners() {}
+  child.classList.add(...['badge', 'badge-info']);
+  parent.classList.add('text-center');
 
-function removePCNodes() {
-  while (parentChildTree.firstChild) {
-    parentChildTree.removeChild(parentChildTree.lastChild);
+  child.appendChild(textNode);
+  parent.appendChild(child);
+  return parent;
+}
+
+function removeChildrenNodes(node) {
+  while (node.firstChild) {
+    node.removeChild(node.lastChild);
   }
+}
+
+function setAllProperties(props) {
+  removeChildrenNodes(properties);
+  props.forEach((prop) => {
+    properties.appendChild(createPropertiesElement(prop));
+  });
+}
+
+function addElementsClickListeners(singleRelationElement, ele) {
+  singleRelationElement.addEventListener('click', function relationElementListener() {
+    setAllProperties(Object.keys(ele.e));
+  })
 }
 
 function createPCRelationElements() {
   pcTreeData.forEach((ele) => {
-    parentChildTree.appendChild(createRelationNode(ele.name));
+    const singleRelationElement = createRelationNode(ele.name);
+    addElementsClickListeners(singleRelationElement, ele);
+    parentChildTree.appendChild(singleRelationElement);
   });
 }
 
@@ -71,9 +95,8 @@ function changeSelectOption(name) {
   // removeAllElementsClickListeners();
   let element = document.createElement(name);
   pcTreeData = getParentChildRelationData(element, name);
-  removePCNodes();
+  removeChildrenNodes(parentChildTree);
   createPCRelationElements();
-  addElementsClickListeners();
 }
 
 addOptionsToSelect(selectTag, elements);
