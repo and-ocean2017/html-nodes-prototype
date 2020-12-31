@@ -120,6 +120,7 @@ function changeSelectOption(name) {
   createPCRelationElements();
 }
 
+// This is programming functionality
 addOptionsToSelect(selectTag, elements);
 selectTag.addEventListener('change', function changeOption() {
   changeSelectOption(selectTag.value);
